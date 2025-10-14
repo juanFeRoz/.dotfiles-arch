@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+pwd=$PWD
+cd /
+eval "$(direnv export bash)"
+cd $pwd
+exec tmux "$@"
