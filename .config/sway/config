@@ -36,11 +36,6 @@ exec kitty
 exec waybar
 exec lxsession
 
-exec swayidle -w \
-    timeout 300 'swaylock -f -c 000000' \
-    timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-    before-sleep 'swaylock -f -c 000000'
-
 
 input type:pointer {
     accel_profile flat
@@ -60,9 +55,6 @@ bindsym $mod+Return exec $term
 
 bindsym $mod+b splith
 bindsym $mod+v splitv
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
 
 mode "resize" {
     bindsym $left resize shrink width 10px
@@ -141,7 +133,9 @@ for_window [app_id="firefox"] move window to workspace 1
 for_window [app_id="kitty"] move window to workspace 2
 for_window [app_id="code"] move window to workspace 3
 for_window [class="obsidian"] move window to workspace 4
-for_window [class="steam"] move window to workspace 5
+for_window [app_id="org.kde.okular"] move window to workspace 5
+for_window [app_id="calibre-gui"] move window to workspace 5
+for_window [class="steam"] move window to workspace 6
 
 bindsym $mod+f fullscreen
 bindsym $mod+d exec $menu
@@ -151,7 +145,10 @@ bindsym $mod+F1 exec firefox
 bindsym $mod+F2 exec dolphin
 bindsym $mod+F3 exec code
 bindsym $mod+F4 exec obsidian
-bindsym $mod+F5 exec steam
+bindsym $mod+F5 exec okular
+bindsym $mod+F6 exec steam
+bindsym $mod+F7 exec azahar
+bindsym $mod+F8 exec eden
 
 bindsym $mod+Shift+space floating toggle
 

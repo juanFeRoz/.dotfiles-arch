@@ -6,6 +6,8 @@ keymap("n", "<Space>", "", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+vim.o.cmdheight = 1
+
 -- yank to system clipboard
 keymap({ "n", "v" }, "<leader>y", '"+y', opts)
 
