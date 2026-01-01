@@ -1,23 +1,20 @@
-# Key to do all things
 set $mod Mod4
-
-# Vim-like navigation
 set $left h
 set $down j
 set $up k
 set $right l
-
-set $term kitty
+set $term foot
 set $menu wmenu-run
+
 font pango: DroidSans 14
 
-
-output * bg ~/Pictures/arch.png fit
+output * bg ~/Pictures/crawdaunt.jpg fit
 
 for_window [class="^.*"] border pixel 1
 default_border pixel 1
 default_floating_border normal
 hide_edge_borders smart
+
 gaps inner 5
 gaps outer 1
 gaps top 1
@@ -29,6 +26,7 @@ client.focused_inactive  #16161d #16161d #c0caf5 #16161d   #16161d
 client.unfocused         #16161d #16161d #c0caf5 #16161d   #16161d
 
 exec blueman-applet
+exec easyeffects -w
 exec nm-applet
 exec firefox
 exec "corectrl --minimize-systray"
@@ -36,19 +34,6 @@ exec kitty
 exec waybar
 exec lxsession
 
-
-input type:pointer {
-    accel_profile flat
-    pointer_accel 0.5
-}
-
-input type:touchpad {
-    dwt enabled
-    tap enabled
-    natural_scroll enabled
-    middle_emulation enabled
-    accel_profile adaptive
-}
 
 
 bindsym $mod+Return exec $term
@@ -124,6 +109,7 @@ for_window [app_id="org.kde.dolphin"] floating enable
 for_window [app_id="pwvucontrol"] floating enable
 for_window [app_id="blueman-manager"] floating enable
 for_window [app_id="org.corectrl.CoreCtrl"] floating enable
+for_window [app_id="easyeffects"] floating enable
 for_window [app_id="firefox" title="Firefox — Sharing Indicator"] floating enable
 for_window [app_id="firefox" title="Picture-in-Picture"] floating enable
 for_window [app_id="firefox" title="Pushbullet – Mozilla Firefox"] floating enable
@@ -133,8 +119,8 @@ for_window [app_id="firefox"] move window to workspace 1
 for_window [app_id="kitty"] move window to workspace 2
 for_window [app_id="code"] move window to workspace 3
 for_window [class="obsidian"] move window to workspace 4
+for_window [class="jetbrains-toolbox"] move window to workspace 3
 for_window [app_id="org.kde.okular"] move window to workspace 5
-for_window [app_id="calibre-gui"] move window to workspace 5
 for_window [class="steam"] move window to workspace 6
 
 bindsym $mod+f fullscreen
@@ -143,7 +129,7 @@ bindsym $mod+Shift+c reload
 
 bindsym $mod+F1 exec firefox
 bindsym $mod+F2 exec dolphin
-bindsym $mod+F3 exec code
+bindsym $mod+F3 exec jetbrains-toolbox
 bindsym $mod+F4 exec obsidian
 bindsym $mod+F5 exec okular
 bindsym $mod+F6 exec steam
@@ -168,6 +154,19 @@ bindsym XF86AudioPrev exec playerctl previous
 input "type:keyboard" {
     xkb_layout latam,es
     xkb_options caps:ctrl_modifier,grp:shifts_toggle
+}
+
+input type:pointer {
+    accel_profile flat
+    pointer_accel 0.0
+}
+
+input type:touchpad {
+    dwt enabled
+    tap enabled
+    natural_scroll enabled
+    middle_emulation enabled
+    accel_profile adaptive
 }
 
 bindsym $mod+Shift+s exec grim -g "$(slurp)" - | wl-copy    

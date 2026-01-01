@@ -1,14 +1,12 @@
-export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
-export ZSH="$HOME/.oh-my-zsh"
-export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
-export EDITOR=neovim
-export VISUAL=neovim
-export _JAVA_AWT_WM_NONREPARENTING=1
-export _JAVA_OPTIONS='-Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
-
+PATH=$HOME/.local/share/JetBrains/Toolbox/scripts:$HOME/.local/scripts:$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+ZSH="$HOME/.oh-my-zsh"
+DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
+EDITOR=neovim
+VISUAL=neovim
+_JAVA_AWT_WM_NONREPARENTING=1
+_JAVA_OPTIONS='-Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 ZSH_THEME="gentoo"
 ENABLE_CORRECTION="true"
-PATH="$PATH":"$HOME/.local/scripts/"
 
 plugins=(zsh-autosuggestions zsh-syntax-highlighting)
 
