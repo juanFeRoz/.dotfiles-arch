@@ -8,7 +8,7 @@ set $menu wmenu-run
 
 font pango: DroidSans 14
 
-output * bg ~/Pictures/crawdaunt.jpg fit
+output * bg ~/Pictures/serperior-shiny.jpg fit
 
 for_window [class="^.*"] border pixel 1
 default_border pixel 1
@@ -30,11 +30,9 @@ exec easyeffects -w
 exec nm-applet
 exec firefox
 exec "corectrl --minimize-systray"
-exec kitty
+exec foot
 exec waybar
 exec lxsession
-
-
 
 bindsym $mod+Return exec $term
 
@@ -137,8 +135,6 @@ bindsym $mod+F7 exec azahar
 bindsym $mod+F8 exec eden
 
 bindsym $mod+Shift+space floating toggle
-
-bindsym $mod+space focus mode_toggle
 
 bindsym XF86AudioRaiseVolume exec "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"
 bindsym XF86AudioLowerVolume exec "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"

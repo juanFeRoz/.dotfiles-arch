@@ -43,7 +43,6 @@ jq
 kdialog
 kirigami-addons
 kitemmodels
-kitty
 ksvg
 lib32-gamemode
 lib32-mesa
