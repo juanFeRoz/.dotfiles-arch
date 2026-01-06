@@ -13,6 +13,7 @@ output * bg ~/Pictures/serperior-shiny.jpg fit
 for_window [class="^.*"] border pixel 1
 default_border pixel 1
 default_floating_border normal
+floating_modifier $mod normal
 hide_edge_borders smart
 
 gaps inner 5
@@ -114,7 +115,7 @@ for_window [app_id="firefox" title="Pushbullet – Mozilla Firefox"] floating en
 for_window [app_id="firefox" title="About Mozilla Firefox"] floating enable
 
 for_window [app_id="firefox"] move window to workspace 1
-for_window [app_id="kitty"] move window to workspace 2
+for_window [app_id="foot"] move window to workspace 2
 for_window [app_id="code"] move window to workspace 3
 for_window [class="obsidian"] move window to workspace 4
 for_window [class="jetbrains-toolbox"] move window to workspace 3

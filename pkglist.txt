@@ -12,6 +12,7 @@ calf
 chaotic-keyring
 chaotic-mirrorlist
 corectrl
+discord
 docker
 docker-buildx
 docker-compose
@@ -21,7 +22,9 @@ easyeffects
 eden-git
 efibootmgr
 fastfetch
+feh
 firefox
+fish
 foot
 fzf
 gamemode
@@ -37,7 +40,6 @@ hip-runtime-amd
 htop
 inotify-tools
 jdk-openjdk
-jdownloader2
 jetbrains-toolbox
 jq
 kdialog
@@ -49,6 +51,8 @@ lib32-mesa
 lib32-vulkan-radeon
 linux
 linux-firmware
+linux-lqx
+linux-lqx-headers
 linuxconsole
 lsp-plugins-lv2
 lua-language-server
@@ -66,6 +70,7 @@ obsidian
 okular
 openssh
 otf-latin-modern
+paccache-hook
 pacman-contrib
 paru
 paru-debug
@@ -100,6 +105,7 @@ thunar
 thunar-volman
 timeshift
 timeshift-autosnap
+tldr
 tmux
 tree
 ttf-droid
@@ -127,4 +133,3 @@ xorg-xwayland
 yay-debug
 yelp
 zam-plugins-lv2
-zsh

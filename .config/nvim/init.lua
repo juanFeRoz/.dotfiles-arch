@@ -4,6 +4,7 @@ require("config.lsp")
 vim.o.termguicolors = true
 vim.cmd [[colorscheme tokyonight-night]]
 
+vim.opt.inccommand = "split" -- or "nosplit"
 vim.opt.tabstop = 4
 vim.opt.colorcolumn = "80"
 vim.opt.softtabstop = 4
