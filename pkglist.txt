@@ -24,7 +24,7 @@ efibootmgr
 fastfetch
 feh
 firefox
-fish
+flatpak
 foot
 fzf
 gamemode
@@ -49,6 +49,7 @@ ksvg
 lib32-gamemode
 lib32-mesa
 lib32-vulkan-radeon
+libc++
 linux
 linux-firmware
 linux-lqx
@@ -106,13 +107,11 @@ thunar-volman
 timeshift
 timeshift-autosnap
 tldr
-tmux
 tree
 ttf-droid
 ttf-iosevka-nerd
 unrar
 unzip
-vim
 visual-studio-code-bin
 vlc
 vlc-plugin-ffmpeg

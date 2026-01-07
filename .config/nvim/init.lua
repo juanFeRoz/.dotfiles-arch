@@ -2,6 +2,13 @@ require("config.lazy")
 require("config.lsp")
 
 vim.o.termguicolors = true
+require("tokyonight").setup({
+    transparent = true,           -- This enables transparency
+    styles = {
+        sidebars = "transparent", -- Optional: makes floating windows/sidebars transparent too
+        floats = "transparent",
+    },
+})
 vim.cmd [[colorscheme tokyonight-night]]
 
 vim.opt.inccommand = "split" -- or "nosplit"

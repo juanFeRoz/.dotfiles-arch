@@ -8,7 +8,7 @@ set $menu wmenu-run
 
 font pango: DroidSans 14
 
-output * bg ~/Pictures/serperior-shiny.jpg fit
+output * bg ~/Pictures/crawdaunt.jpg fit
 
 for_window [class="^.*"] border pixel 1
 default_border pixel 1
