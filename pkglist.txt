@@ -1,6 +1,6 @@
 7zip
 amd-ucode
-azahar-appimage
+autotiling
 base
 base-devel
 blueman
@@ -11,6 +11,7 @@ btrfs-progs
 calf
 chaotic-keyring
 chaotic-mirrorlist
+cmus
 corectrl
 discord
 docker
@@ -24,6 +25,7 @@ efibootmgr
 fastfetch
 feh
 firefox
+fish
 flatpak
 foot
 fzf
@@ -125,10 +127,13 @@ wine-staging
 winetricks
 wireplumber
 wl-clipboard
+wlprop
 wmenu
 xdg-desktop-portal-gtk
 xdg-desktop-portal-wlr
 xorg-xwayland
 yay-debug
+yazi
 yelp
 zam-plugins-lv2
+zoxide

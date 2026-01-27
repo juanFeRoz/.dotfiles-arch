@@ -8,7 +8,7 @@ set $menu wmenu-run
 
 font pango: DroidSans 14
 
-output * bg ~/Pictures/crawdaunt.jpg fit
+output * bg ~/Pictures/serperior-shiny.jpg fit
 
 for_window [class="^.*"] border pixel 1
 default_border pixel 1
@@ -27,6 +27,7 @@ client.focused_inactive  #16161d #16161d #c0caf5 #16161d   #16161d
 client.unfocused         #16161d #16161d #c0caf5 #16161d   #16161d
 
 exec blueman-applet
+exec autotiling
 exec easyeffects -w
 exec nm-applet
 exec firefox
@@ -117,7 +118,7 @@ for_window [app_id="firefox" title="About Mozilla Firefox"] floating enable
 for_window [app_id="firefox"] move window to workspace 1
 for_window [app_id="foot"] move window to workspace 2
 for_window [app_id="code"] move window to workspace 3
-for_window [class="obsidian"] move window to workspace 4
+for_window [app_id="obsidian"] move window to workspace 4
 for_window [class="jetbrains-toolbox"] move window to workspace 3
 for_window [app_id="org.kde.okular"] move window to workspace 5
 for_window [class="steam"] move window to workspace 6
@@ -150,7 +151,7 @@ bindsym XF86AudioPrev exec playerctl previous
 
 input "type:keyboard" {
     xkb_layout latam,es
-    xkb_options caps:ctrl_modifier,grp:shifts_toggle
+    xkb_options caps:ctrl_modifier,grp:alt_space_toggle
 }
 
 input type:pointer {
