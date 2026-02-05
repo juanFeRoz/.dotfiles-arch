@@ -1,5 +1,6 @@
 7zip
 amd-ucode
+anki
 autotiling
 base
 base-devel
@@ -19,7 +20,6 @@ docker-buildx
 docker-compose
 docker-rootless-extras
 dolphin
-easyeffects
 eden-git
 efibootmgr
 fastfetch
@@ -38,7 +38,6 @@ grub
 grub-btrfs
 gst-libav
 gvfs
-hip-runtime-amd
 htop
 inotify-tools
 jdk-openjdk
@@ -91,13 +90,10 @@ qt6-websockets
 quickemu-git
 reflector
 ripgrep
-rocm-hip-libraries
-rocm-hip-runtime
-rocm-hip-sdk
-rocm-opencl-runtime
 sddm
 sddm-kcm
 slurp
+spotify
 steam
 sudo
 sway
@@ -114,7 +110,6 @@ ttf-droid
 ttf-iosevka-nerd
 unrar
 unzip
-visual-studio-code-bin
 vlc
 vlc-plugin-ffmpeg
 vulkan-radeon
@@ -136,4 +131,5 @@ yay-debug
 yazi
 yelp
 zam-plugins-lv2
+zoom
 zoxide

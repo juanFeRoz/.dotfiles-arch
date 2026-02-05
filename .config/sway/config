@@ -28,7 +28,6 @@ client.unfocused         #16161d #16161d #c0caf5 #16161d   #16161d
 
 exec blueman-applet
 exec autotiling
-exec easyeffects -w
 exec nm-applet
 exec firefox
 exec "corectrl --minimize-systray"
@@ -117,7 +116,7 @@ for_window [app_id="firefox" title="About Mozilla Firefox"] floating enable
 
 for_window [app_id="firefox"] move window to workspace 1
 for_window [app_id="foot"] move window to workspace 2
-for_window [app_id="code"] move window to workspace 3
+for_window [app_id="spotify"] move window to workspace 7
 for_window [app_id="obsidian"] move window to workspace 4
 for_window [class="jetbrains-toolbox"] move window to workspace 3
 for_window [app_id="org.kde.okular"] move window to workspace 5
@@ -128,7 +127,7 @@ bindsym $mod+d exec $menu
 bindsym $mod+Shift+c reload
 
 bindsym $mod+F1 exec firefox
-bindsym $mod+F2 exec dolphin
+bindsym $mod+F2 exec spotify
 bindsym $mod+F3 exec jetbrains-toolbox
 bindsym $mod+F4 exec obsidian
 bindsym $mod+F5 exec okular
