@@ -7,12 +7,9 @@ set $term foot
 set $menu wmenu-run
 
 font pango: DroidSans 14
-
 output * bg ~/Pictures/serperior-shiny.jpg fit
-
-for_window [class="^.*"] border pixel 1
-default_border pixel 1
-default_floating_border normal
+default_border pixel 4
+default_floating_border none
 floating_modifier $mod normal
 hide_edge_borders smart
 
@@ -26,19 +23,12 @@ client.focused           #9aa5ce #16161d #c0caf5 #9aa5ce   #9aa5ce
 client.focused_inactive  #16161d #16161d #c0caf5 #16161d   #16161d
 client.unfocused         #16161d #16161d #c0caf5 #16161d   #16161d
 
-exec blueman-applet
+exec foot --app-id=ncspot -e ncspot
 exec autotiling
 exec nm-applet
 exec firefox
-exec "corectrl --minimize-systray"
 exec foot
 exec waybar
-exec lxsession
-
-bindsym $mod+Return exec $term
-
-bindsym $mod+b splith
-bindsym $mod+v splitv
 
 mode "resize" {
     bindsym $left resize shrink width 10px
@@ -46,11 +36,9 @@ mode "resize" {
     bindsym $up resize shrink height 10px
     bindsym $right resize grow width 10px
 
-    # return to default mode
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-
 bindsym $mod+r mode "resize"
 
 mode "$mode_system" {
@@ -67,21 +55,18 @@ mode "$mode_system" {
 }
 bindsym $mod+Shift+e mode "$mode_system"
 
+bindsym $mod+Return exec $term
 bindsym Control+Space exec makoctl dismiss
 bindsym Control+Shift+Space exec makoctl dismiss --all
-
 bindsym $mod+Shift+q kill
-
 bindsym $mod+$left focus left
 bindsym $mod+$down focus down
 bindsym $mod+$up focus up
 bindsym $mod+$right focus right
-
 bindsym $mod+Shift+$left move left
 bindsym $mod+Shift+$down move down
 bindsym $mod+Shift+$up move up
 bindsym $mod+Shift+$right move right
-
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
 bindsym $mod+3 workspace number 3
@@ -92,7 +77,6 @@ bindsym $mod+7 workspace number 7
 bindsym $mod+8 workspace number 8
 bindsym $mod+9 workspace number 9
 bindsym $mod+0 workspace number 10
-
 bindsym $mod+Shift+1 move container to workspace number 1
 bindsym $mod+Shift+2 move container to workspace number 2
 bindsym $mod+Shift+3 move container to workspace number 3
@@ -103,50 +87,40 @@ bindsym $mod+Shift+7 move container to workspace number 7
 bindsym $mod+Shift+8 move container to workspace number 8
 bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 10
+bindsym $mod+f fullscreen
+bindsym $mod+d exec $menu
+bindsym $mod+Shift+c reload
+bindsym $mod+F1 exec firefox
+bindsym $mod+F2 [app_id="ncspot"] scratchpad show
+bindsym $mod+F3 exec obsidian
+bindsym $mod+F4 exec okular
+bindsym $mod+F5 exec steam
+bindsym $mod+F6 exec eden
+bindsym $mod+Shift+space floating toggle
+bindsym XF86AudioRaiseVolume exec "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"
+bindsym XF86AudioLowerVolume exec "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+bindsym XF86AudioMute exec "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+bindsym $mod+Shift+s exec grim -g "$(slurp)" - | wl-copy    
 
-for_window [app_id="org.kde.dolphin"] floating enable
 for_window [app_id="pwvucontrol"] floating enable
 for_window [app_id="blueman-manager"] floating enable
 for_window [app_id="org.corectrl.CoreCtrl"] floating enable
-for_window [app_id="easyeffects"] floating enable
 for_window [app_id="firefox" title="Firefox — Sharing Indicator"] floating enable
 for_window [app_id="firefox" title="Picture-in-Picture"] floating enable
 for_window [app_id="firefox" title="Pushbullet – Mozilla Firefox"] floating enable
 for_window [app_id="firefox" title="About Mozilla Firefox"] floating enable
-
 for_window [app_id="firefox"] move window to workspace 1
 for_window [app_id="foot"] move window to workspace 2
-for_window [app_id="spotify"] move window to workspace 7
-for_window [app_id="obsidian"] move window to workspace 4
-for_window [class="jetbrains-toolbox"] move window to workspace 3
-for_window [app_id="org.kde.okular"] move window to workspace 5
-for_window [class="steam"] move window to workspace 6
-
-bindsym $mod+f fullscreen
-bindsym $mod+d exec $menu
-bindsym $mod+Shift+c reload
-
-bindsym $mod+F1 exec firefox
-bindsym $mod+F2 exec spotify
-bindsym $mod+F3 exec jetbrains-toolbox
-bindsym $mod+F4 exec obsidian
-bindsym $mod+F5 exec okular
-bindsym $mod+F6 exec steam
-bindsym $mod+F7 exec azahar
-bindsym $mod+F8 exec eden
-
-bindsym $mod+Shift+space floating toggle
-
-bindsym XF86AudioRaiseVolume exec "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"
-bindsym XF86AudioLowerVolume exec "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-bindsym XF86AudioMute exec "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-
-bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
-bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
-
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+for_window [app_id="ncspot"] move window to scratchpad
+for_window [app_id="obsidian"] move window to workspace 3
+for_window [app_id="org.kde.okular"] move window to workspace 4
+for_window [class="steam"] move window to workspace 5
+for_window [class="eden"] move window to workspace 6
 
 input "type:keyboard" {
     xkb_layout latam,es
@@ -165,7 +139,5 @@ input type:touchpad {
     middle_emulation enabled
     accel_profile adaptive
 }
-
-bindsym $mod+Shift+s exec grim -g "$(slurp)" - | wl-copy    
 
 include /etc/sway/config.d/*
