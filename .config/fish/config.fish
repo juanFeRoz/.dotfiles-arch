@@ -3,7 +3,6 @@ if status is-interactive
     set -g fish_greeting
 end
 
-set -gx EDITOR nvim
 
 alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
 
@@ -16,8 +15,10 @@ function y
 	rm -f -- "$tmp"
 end
 
+set -gx EDITOR nvim
 set -gx ROCM_PATH /opt/rocm
 set -gx HIP_PLATFORM amd
+
 fish_add_path $ROCM_PATH/bin
 
 zoxide init fish | source
