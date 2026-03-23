@@ -2,6 +2,23 @@ vim.lsp.enable('clangd')
 vim.lsp.enable('lua_ls')
 vim.lsp.enable('pyright')
 
+vim.lsp.config('clangd', {
+    cmd = {
+        "clangd",
+        "--background-index",
+        "--clang-tidy",
+        "--header-insertion=iwyu",
+        "--completion-style=detailed",
+    },
+    init_options = {
+        fallbackFlags = {
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+        },
+    },
+})
+
 vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(args)
         local client = vim.lsp.get_client_by_id(args.data.client_id)

@@ -3,8 +3,12 @@ if status is-interactive
     set -g fish_greeting
 end
 
-
 alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
+
+bind ctrl-y tmux-sessionizer
+bind ctrl-f accept-autosuggestion
+
+alias clang++="clang++ -std=c++23 -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion -pedantic-errors -Werror"
 
 function y
 	set tmp (mktemp -t "yazi-cwd.XXXXXX")
@@ -18,6 +22,7 @@ end
 set -gx EDITOR nvim
 set -gx ROCM_PATH /opt/rocm
 set -gx HIP_PLATFORM amd
+set -gx SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 fish_add_path $ROCM_PATH/bin
 
