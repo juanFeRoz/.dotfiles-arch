@@ -16,12 +16,10 @@ btop
 btrfs-progs
 chaotic-keyring
 chaotic-mirrorlist
-clinfo
 cmake
 cmus
 codelldb-bin
 corectrl
-curlftpfs
 dmenu
 dmidecode
 docker
@@ -39,6 +37,7 @@ foot
 fzf
 game-devices-udev
 gamemode
+gamescope
 gdb
 git
 github-cli
@@ -58,10 +57,10 @@ i3blocks
 i3lock
 i3status
 inotify-tools
+inxi
 jdk-openjdk
 jetbrains-toolbox
 jq
-jstest-gtk-git
 kdialog
 kirigami-addons
 kitemmodels
@@ -69,7 +68,6 @@ ksvg
 lib32-gamemode
 lib32-mesa
 lib32-vulkan-radeon
-libc++
 linux
 linux-firmware
 linux-lqx
@@ -79,10 +77,11 @@ lldb
 lshw
 lsp-plugins-lv2
 lua-language-server
+lutris
 mako
 man-db
 matplotplusplus
-neovim-git
+neovim
 network-manager-applet
 networkmanager
 noto-fonts-cjk
@@ -104,7 +103,7 @@ pipewire
 pipewire-alsa
 pipewire-jack
 pipewire-pulse
-pocl
+protontricks-git
 pwvucontrol
 pyright
 qbittorrent
@@ -116,7 +115,6 @@ rocm-hip-sdk
 rocm-opencl-sdk
 sddm
 sddm-kcm
-sdl2-gamepad-mapper
 slurp
 steam
 sudo
@@ -129,7 +127,6 @@ timeshift
 timeshift-autosnap
 tldr
 tmux
-tree
 ttf-droid
 ttf-iosevka-nerd
 unrar

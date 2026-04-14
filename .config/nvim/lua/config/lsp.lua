@@ -7,15 +7,8 @@ vim.lsp.config('clangd', {
         "clangd",
         "--background-index",
         "--clang-tidy",
-        "--header-insertion=iwyu",
+        "--header-insertion=never",
         "--completion-style=detailed",
-    },
-    init_options = {
-        fallbackFlags = {
-            "-Wall",
-            "-Wextra",
-            "-Werror",
-        },
     },
 })
 
@@ -41,6 +34,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set({ 'n', 'x' }, 'gq', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', {})
         vim.keymap.set('n', 'grt', '<cmd>lua vim.lsp.buf.type_definition()<cr>', {})
         vim.keymap.set('n', 'grd', '<cmd>lua vim.lsp.buf.declaration()<cr>', {})
+        vim.keymap.set('n', '<leader>ga', vim.lsp.buf.code_action, { buffer = args.buf, desc = "LSP code action" })
     end,
 })
 

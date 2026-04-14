@@ -92,6 +92,7 @@ bindsym $mod+f fullscreen
 bindsym $mod+d exec $menu
 bindsym $mod+Shift+c reload
 bindsym $mod+F1 exec firefox
+bindsym $mod+F2 exec lutris
 bindsym $mod+F3 exec obsidian
 bindsym $mod+F4 exec okular
 bindsym $mod+F5 exec steam
@@ -120,6 +121,7 @@ for_window [app_id="foot"] move window to workspace 2
 for_window [app_id="obsidian"] move window to workspace 3
 for_window [app_id="org.kde.okular"] move window to workspace 4
 for_window [class="steam"] move window to workspace 5
+for_window [app_id="net.lutris.Lutris"] move window to workspace 5
 for_window [class="eden"] move window to workspace 6
 
 input "type:keyboard" {
