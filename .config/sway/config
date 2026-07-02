@@ -92,11 +92,12 @@ bindsym $mod+f fullscreen
 bindsym $mod+d exec $menu
 bindsym $mod+Shift+c reload
 bindsym $mod+F1 exec firefox
-bindsym $mod+F2 exec lutris
+bindsym $mod+F2 exec thunar
 bindsym $mod+F3 exec obsidian
 bindsym $mod+F4 exec okular
 bindsym $mod+F5 exec steam
-bindsym $mod+F6 exec eden
+bindsym $mod+F6 exec mangohud amethyst-mod-manager
+bindsym $mod+F7 exec eden
 bindsym $mod+Shift+space floating toggle
 bindsym XF86AudioRaiseVolume exec "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"
 bindsym XF86AudioLowerVolume exec "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
@@ -112,17 +113,13 @@ for_window [app_id="pwvucontrol"] floating enable
 for_window [app_id="blueman-manager"] floating enable
 for_window [app_id="Zotero"] floating enable
 for_window [app_id="org.corectrl.CoreCtrl"] floating enable
-for_window [app_id="firefox" title="Firefox — Sharing Indicator"] floating enable
-for_window [app_id="firefox" title="Picture-in-Picture"] floating enable
-for_window [app_id="firefox" title="Pushbullet – Mozilla Firefox"] floating enable
-for_window [app_id="firefox" title="About Mozilla Firefox"] floating enable
 for_window [app_id="firefox"] move window to workspace 1
 for_window [app_id="foot"] move window to workspace 2
 for_window [app_id="obsidian"] move window to workspace 3
 for_window [app_id="org.kde.okular"] move window to workspace 4
 for_window [class="steam"] move window to workspace 5
-for_window [app_id="net.lutris.Lutris"] move window to workspace 5
-for_window [class="eden"] move window to workspace 6
+for_window [class="Tk"] move window to workspace 6
+for_window [class="eden"] move window to workspace 7
 
 input "type:keyboard" {
     xkb_layout latam,es

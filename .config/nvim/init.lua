@@ -1,17 +1,27 @@
 require("config.lazy")
 require("config.lsp")
 require("config.dap")
-require("config.filetype")
+
+vim.treesitter.language.install = true
 
 vim.o.termguicolors = true
 require("tokyonight").setup({
-    transparent = true,           -- This enables transparency
-    styles = {
-        sidebars = "transparent", -- Optional: makes floating windows/sidebars transparent too
-        floats = "transparent",
-    },
+	transparent = true, -- This enables transparency
+	styles = {
+		sidebars = "transparent", -- Optional: makes floating windows/sidebars transparent too
+		floats = "transparent",
+	},
 })
-vim.cmd [[colorscheme tokyonight-night]]
+vim.cmd([[colorscheme tokyonight-night]])
+
+require("conform").setup({
+	formatters_by_ft = {
+		lua = { "stylua" },
+		python = { "black" },
+		cpp = { "clang-format" },
+	},
+	format_on_save = {},
+})
 
 vim.opt.inccommand = "split" -- or "nosplit"
 vim.opt.tabstop = 2
@@ -30,8 +40,8 @@ vim.o.undofile = true
 vim.o.scrolloff = 8
 vim.o.confirm = true
 
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
-vim.keymap.set('n', '<leader>pv', '<cmd>Ex<CR>')
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+vim.keymap.set("n", "<leader>pv", "<cmd>Ex<CR>")
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -43,4 +53,4 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
--- vim.keymap.set({ "n", "v" }, "<leader>d", "\"_d")
+vim.keymap.set({ "n", "v" }, "<leader>d", '"_d')

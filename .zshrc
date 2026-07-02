@@ -1,9 +1,12 @@
 export LANG=en_US.utf8
 export EDITOR=nvim
 export PATH="$PATH:$HOME/.local/scripts/"
-export ZSH="$HOME/.oh-my-zsh"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 export ROCM_PATH=/opt/rocm
 export HIP_PATH=/opt/rocm
+export DEVICE_LIB_PATH=/opt/rocm/lib/bitcode
+export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="fishy"
 plugins=(zsh-autosuggestions)
@@ -23,3 +26,4 @@ alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
 
 bindkey -s '^F' 'tmux-sessionizer\n'
 bindkey '^Y' autosuggest-accept
+export ACPP_CLANG=/opt/rocm/llvm/bin/clang++

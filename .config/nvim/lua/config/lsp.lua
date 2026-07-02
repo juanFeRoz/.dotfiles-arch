@@ -1,80 +1,91 @@
-vim.lsp.enable('clangd')
-vim.lsp.enable('lua_ls')
-vim.lsp.enable('pyright')
+-- Reserve a space in the gutter
+vim.opt.signcolumn = "yes"
 
-vim.lsp.config('clangd', {
-    cmd = {
-        "clangd",
-        "--background-index",
-        "--clang-tidy",
-        "--header-insertion=never",
-        "--completion-style=detailed",
-    },
+-- Add cmp_nvim_lsp capabilities settings to lspconfig
+-- This should be executed before you configure any language server
+local lspconfig_defaults = require("lspconfig").util.default_config
+lspconfig_defaults.capabilities =
+	vim.tbl_deep_extend("force", lspconfig_defaults.capabilities, require("cmp_nvim_lsp").default_capabilities())
+
+-- This is where you enable features that only work
+-- if there is a language server active in the file
+vim.api.nvim_create_autocmd("LspAttach", {
+	desc = "LSP actions",
+	callback = function(event)
+		local opts = { buffer = event.buf }
+
+		vim.keymap.set("n", "gd", function()
+			vim.lsp.buf.definition()
+		end, opts)
+		vim.keymap.set("n", "K", function()
+			vim.lsp.buf.hover()
+		end, opts)
+		vim.keymap.set("n", "<leader>vws", function()
+			vim.lsp.buf.workspace_symbol()
+		end, opts)
+		vim.keymap.set("n", "<leader>vd", function()
+			vim.diagnostic.open_float()
+		end, opts)
+		vim.keymap.set("n", "[d", function()
+			vim.diagnostic.get_next()
+		end, opts)
+		vim.keymap.set("n", "]d", function()
+			vim.diagnostic.get_prev()
+		end, opts)
+		vim.keymap.set("n", "<leader>vca", function()
+			vim.lsp.buf.code_action()
+		end, opts)
+		vim.keymap.set("n", "<leader>vrr", function()
+			vim.lsp.buf.references()
+		end, opts)
+		vim.keymap.set("n", "<leader>vrn", function()
+			vim.lsp.buf.rename()
+		end, opts)
+		vim.keymap.set("i", "<C-h>", function()
+			vim.lsp.buf.signature_help()
+		end, opts)
+	end,
 })
 
-vim.api.nvim_create_autocmd('LspAttach', {
-    callback = function(args)
-        local client = vim.lsp.get_client_by_id(args.data.client_id)
+vim.api.nvim_create_autocmd("LspAttach", {
+	callback = function(args)
+		local client = vim.lsp.get_client_by_id(args.data.client_id)
 
-        if client:supports_method('textDocument/formatting') then
-            vim.api.nvim_create_autocmd('BufWritePre', {
-                buffer = args.buf,
-                callback = function()
-                    vim.lsp.buf.format({ bufnr = args.buf, id = client.id })
-                end,
-            })
-        end
-
-        if client:supports_method('textDocument/completion') then
-            vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
-        end
-
-        vim.keymap.set({ 'n', 'i' }, '<C-Space>', '<C-x><C-o>', {})
-        vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', {})
-        vim.keymap.set({ 'n', 'x' }, 'gq', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', {})
-        vim.keymap.set('n', 'grt', '<cmd>lua vim.lsp.buf.type_definition()<cr>', {})
-        vim.keymap.set('n', 'grd', '<cmd>lua vim.lsp.buf.declaration()<cr>', {})
-        vim.keymap.set('n', '<leader>ga', vim.lsp.buf.code_action, { buffer = args.buf, desc = "LSP code action" })
-    end,
+		if client:supports_method("textDocument/completion") then
+			vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
+		end
+	end,
 })
 
-vim.opt.completeopt = { 'menu', 'menuone', 'noselect', 'noinsert' }
-vim.opt.shortmess:append('c')
+require("mason").setup({})
+require("mason-lspconfig").setup({
+	-- Replace the language servers listed here
+	-- with the ones you want to install
+	ensure_installed = { "lua_ls", "rust_analyzer", "clangd" },
+	handlers = {
+		function(server_name)
+			require("lspconfig")[server_name].setup({})
+		end,
+	},
+})
 
-local function tab_complete()
-    if vim.fn.pumvisible() == 1 then
-        -- navigate to next item in completion menu
-        return '<Down>'
-    end
+local cmp = require("cmp")
+local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
-    local c = vim.fn.col('.') - 1
-    local is_whitespace = c == 0 or vim.fn.getline('.'):sub(c, c):match('%s')
-
-    if is_whitespace then
-        -- insert tab
-        return '<Tab>'
-    end
-
-    local lsp_completion = vim.bo.omnifunc == 'v:lua.vim.lsp.omnifunc'
-
-    if lsp_completion then
-        -- trigger lsp code completion
-        return '<C-x><C-o>'
-    end
-
-    -- suggest words in current buffer
-    return '<C-x><C-n>'
-end
-
-local function tab_prev()
-    if vim.fn.pumvisible() == 1 then
-        -- navigate to previous item in completion menu
-        return '<Up>'
-    end
-
-    -- insert tab
-    return '<Tab>'
-end
-
-vim.keymap.set('i', '<Tab>', tab_complete, { expr = true })
-vim.keymap.set('i', '<S-Tab>', tab_prev, { expr = true })
+cmp.setup({
+	sources = {
+		{ name = "nvim_lsp" },
+	},
+	snippet = {
+		expand = function(args)
+			-- You need Neovim v0.10 to use vim.snippet
+			vim.snippet.expand(args.body)
+		end,
+	},
+	mapping = cmp.mapping.preset.insert({
+		["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
+		["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
+		["<C-y>"] = cmp.mapping.confirm({ select = true }),
+		["<C-Space>"] = cmp.mapping.complete(),
+	}),
+})
