@@ -111,13 +111,16 @@ pipewire-pulse
 protontricks-git
 pwvucontrol
 pyright
+pyside6
 python-black
+python-debugpy
 qbittorrent
 qt6-wayland
 qt6-websockets
 rate-mirrors-bin
 ripgrep
 rkhunter
+shiboken6
 slurp
 steam
 stylua

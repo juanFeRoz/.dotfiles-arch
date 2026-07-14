@@ -1,6 +1,7 @@
 require("config.lazy")
 require("config.lsp")
 require("config.dap")
+require("dap-python").setup("python3")
 
 vim.treesitter.language.install = true
 
@@ -41,7 +42,7 @@ vim.o.scrolloff = 8
 vim.o.confirm = true
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
-vim.keymap.set("n", "<leader>pv", "<cmd>Ex<CR>")
+vim.keymap.set("n", "<leader>pv", "<cmd>Oil<CR>")
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -53,4 +54,4 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
-vim.keymap.set({ "n", "v" }, "<leader>d", '"_d')
+-- vim.keymap.set({ "n", "v" }, "<leader>d", '"_d')
